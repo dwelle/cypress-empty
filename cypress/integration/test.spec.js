@@ -2,7 +2,7 @@ describe('test', () => {
   it('test', () => {
     cy.viewport(560, 800);
 
-    cy.window().then( window => {
+    cy.window().then((window) => {
       const { document } = window;
       document.documentElement.innerHTML = `
         <style>

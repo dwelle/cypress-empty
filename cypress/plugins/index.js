@@ -1,9 +1,8 @@
 const preprocessor = require('@cypress/browserify-preprocessor');
-const compileFile = preprocessor( preprocessor.defaultOptions );
+const compileFile = preprocessor(preprocessor.defaultOptions);
 
-module.exports = ( on ) => {
-
-  on('file:preprocessor', ( file ) => {
+module.exports = (on) => {
+  on('file:preprocessor', (file) => {
     return compileFile(file);
   });
 
@@ -14,4 +13,4 @@ module.exports = ( on ) => {
 
     return launchOptions;
   });
-}
+};
