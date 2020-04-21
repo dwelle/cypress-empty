@@ -7,9 +7,11 @@ module.exports = ( on ) => {
     return compileFile(file);
   });
 
-  on('before:browser:launch', (browser = {}, args) => {
-    if (browser.name === 'chrome') {
-      return args.concat('--auto-open-devtools-for-tabs');
+  on('before:browser:launch', (browser = {}, launchOptions) => {
+    if (browser.family === 'chromium' && browser.name !== 'electron') {
+      launchOptions.args.push('--auto-open-devtools-for-tabs');
     }
+
+    return launchOptions;
   });
 }
